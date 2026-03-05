@@ -38,6 +38,7 @@ body {
   overflow-x: hidden;
 }
 
+/* GRAIN OVERLAY */
 body::before {
   content: '';
   position: fixed;
@@ -48,49 +49,305 @@ body::before {
   opacity: 0.4;
 }
 
-header {padding: 48px 48px 24px;border-bottom: 1px solid var(--steel);display: flex;align-items: flex-end;justify-content: space-between;gap: 24px;}
-.logo {font-family: 'Bebas Neue', sans-serif;font-size: 72px;letter-spacing: 4px;line-height: 0.85;color: var(--gold);}
-.subtitle {font-family: 'Space Mono', monospace;font-size: 10px;letter-spacing: 3px;text-transform: uppercase;color: var(--dim);margin-top: 8px;}
-.header-meta {text-align: right;font-family: 'Space Mono', monospace;font-size: 10px;color: var(--dim);letter-spacing: 1px;}
-.header-meta strong {display: block;font-size: 18px;color: var(--gold);letter-spacing: 2px;margin-bottom: 4px;}
-.nav-tabs {display: flex;gap: 0;padding: 0 48px;border-bottom: 1px solid var(--steel);background: var(--charcoal);}
-.tab-btn {padding: 14px 28px;background: none;border: none;color: var(--dim);font-family: 'Space Mono', monospace;font-size: 10px;letter-spacing: 2px;text-transform: uppercase;cursor: pointer;border-bottom: 2px solid transparent;transition: all 0.2s;}
+header {
+  padding: 48px 48px 24px;
+  border-bottom: 1px solid var(--steel);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 72px;
+  letter-spacing: 4px;
+  line-height: 0.85;
+  color: var(--gold);
+}
+
+.subtitle {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-top: 8px;
+}
+
+.header-meta {
+  text-align: right;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--dim);
+  letter-spacing: 1px;
+}
+
+.header-meta strong {
+  display: block;
+  font-size: 18px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+
+/* NAV TABS */
+.nav-tabs {
+  display: flex;
+  gap: 0;
+  padding: 0 48px;
+  border-bottom: 1px solid var(--steel);
+  background: var(--charcoal);
+}
+
+.tab-btn {
+  padding: 14px 28px;
+  background: none;
+  border: none;
+  color: var(--dim);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
 .tab-btn:hover { color: var(--light); }
-.tab-btn.active {color: var(--gold);border-bottom-color: var(--gold);}
+.tab-btn.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
 .tab-content { display: none; }
 .tab-content.active { display: block; }
-.vsm-container {padding: 48px;overflow-x: auto;}
-.vsm-legend {display: flex;gap: 24px;margin-bottom: 40px;flex-wrap: wrap;}
-.legend-item {display: flex;align-items: center;gap: 8px;font-family: 'Space Mono', monospace;font-size: 10px;letter-spacing: 1px;color: var(--dim);}
-.legend-dot {width: 12px; height: 12px;border-radius: 50%;flex-shrink: 0;}
-.stream-wrapper {position: relative;min-width: 1400px;}
-.stream-label {font-family: 'Bebas Neue', sans-serif;font-size: 16px;letter-spacing: 3px;color: var(--dim);margin-bottom: 12px;padding-left: 8px;}
-.stream-row {display: flex;align-items: flex-start;gap: 0;margin-bottom: 48px;position: relative;}
-.process-box {flex-shrink: 0;width: 160px;background: var(--charcoal);border: 1px solid var(--steel);border-top: 3px solid var(--gold);padding: 16px 14px;position: relative;transition: border-color 0.2s, transform 0.2s;cursor: pointer;}
-.process-box:hover {border-color: var(--gold);transform: translateY(-2px);z-index: 10;}
-.process-box.bottleneck {border-top-color: var(--red);background: #1a0f0e;}
-.process-box.warning {border-top-color: var(--orange);background: #1a120a;}
-.process-box.good {border-top-color: var(--green);background: #0a1a10;}
-.process-num {font-family: 'Bebas Neue', sans-serif;font-size: 28px;color: var(--muted);line-height: 1;}
-.process-name {font-family: 'DM Sans', sans-serif;font-weight: 600;font-size: 12px;margin: 4px 0 8px;line-height: 1.3;color: var(--white);}
-.process-time {font-family: 'Space Mono', monospace;font-size: 9px;color: var(--dim);display: flex;flex-direction: column;gap: 2px;}
+
+/* ──────────── TAB 1: VALUE STREAM MAP ──────────── */
+.vsm-container {
+  padding: 48px;
+  overflow-x: auto;
+}
+
+.vsm-legend {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--dim);
+}
+
+.legend-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* STREAM TRACK */
+.stream-wrapper {
+  position: relative;
+  min-width: 1400px;
+}
+
+.stream-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 3px;
+  color: var(--dim);
+  margin-bottom: 12px;
+  padding-left: 8px;
+}
+
+.stream-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 48px;
+  position: relative;
+}
+
+/* PROCESS BOX */
+.process-box {
+  flex-shrink: 0;
+  width: 160px;
+  background: var(--charcoal);
+  border: 1px solid var(--steel);
+  border-top: 3px solid var(--gold);
+  padding: 16px 14px;
+  position: relative;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+
+.process-box:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  z-index: 10;
+}
+
+.process-box.bottleneck {
+  border-top-color: var(--red);
+  background: #1a0f0e;
+}
+
+.process-box.warning {
+  border-top-color: var(--orange);
+  background: #1a120a;
+}
+
+.process-box.good {
+  border-top-color: var(--green);
+  background: #0a1a10;
+}
+
+.process-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: var(--muted);
+  line-height: 1;
+}
+
+.process-name {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  margin: 4px 0 8px;
+  line-height: 1.3;
+  color: var(--white);
+}
+
+.process-time {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--dim);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .time-val { color: var(--light); font-size: 11px; }
 .time-label { font-size: 8px; letter-spacing: 1px; text-transform: uppercase; }
-.connector {flex-shrink: 0;display: flex;flex-direction: column;align-items: center;justify-content: flex-start;padding-top: 30px;width: 60px;position: relative;}
-.connector-line {width: 40px;height: 2px;background: var(--steel);position: relative;}
-.connector-line.problem {background: var(--red);box-shadow: 0 0 6px var(--red);}
-.connector-line::after {content: '▶';position: absolute;right: -8px;top: -7px;font-size: 10px;color: var(--steel);}
+
+/* ARROW CONNECTOR */
+.connector {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 30px;
+  width: 60px;
+  position: relative;
+}
+
+.connector-line {
+  width: 40px;
+  height: 2px;
+  background: var(--steel);
+  position: relative;
+}
+
+.connector-line.problem {
+  background: var(--red);
+  box-shadow: 0 0 6px var(--red);
+}
+
+.connector-line::after {
+  content: '▶';
+  position: absolute;
+  right: -8px;
+  top: -7px;
+  font-size: 10px;
+  color: var(--steel);
+}
+
 .connector-line.problem::after { color: var(--red); }
-.waste-badge {position: absolute;top: -20px;left: 50%;transform: translateX(-50%);background: var(--red-dim);border: 1px solid var(--red);color: var(--red);font-family: 'Space Mono', monospace;font-size: 8px;padding: 2px 5px;border-radius: 2px;white-space: nowrap;letter-spacing: 0.5px;}
-.timeline-section {margin-top: 32px;padding: 24px 0;border-top: 1px solid var(--steel);position: relative;min-width: 1400px;}
-.timeline-label {font-family: 'Space Mono', monospace;font-size: 9px;letter-spacing: 2px;text-transform: uppercase;color: var(--dim);margin-bottom: 16px;}
-.timeline-bar {display: flex;height: 32px;border-radius: 3px;overflow: hidden;margin-bottom: 8px;}
-.tbar-work {background: var(--green);display: flex;align-items: center;justify-content: center;font-family: 'Space Mono', monospace;font-size: 9px;color: white;font-weight: bold;}
-.tbar-wait {background: var(--red-dim);border-left: 2px solid var(--red);display: flex;align-items: center;justify-content: center;font-family: 'Space Mono', monospace;font-size: 9px;color: var(--red);font-weight: bold;}
-.timeline-stats {display: flex;gap: 48px;margin-top: 16px;}
+
+.waste-badge {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--red-dim);
+  border: 1px solid var(--red);
+  color: var(--red);
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  padding: 2px 5px;
+  border-radius: 2px;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+}
+
+/* TIMELINE BAR */
+.timeline-section {
+  margin-top: 32px;
+  padding: 24px 0;
+  border-top: 1px solid var(--steel);
+  position: relative;
+  min-width: 1400px;
+}
+
+.timeline-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 16px;
+}
+
+.timeline-bar {
+  display: flex;
+  height: 32px;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.tbar-work {
+  background: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: white;
+  font-weight: bold;
+}
+
+.tbar-wait {
+  background: var(--red-dim);
+  border-left: 2px solid var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  color: var(--red);
+  font-weight: bold;
+}
+
+.timeline-stats {
+  display: flex;
+  gap: 48px;
+  margin-top: 16px;
+}
+
 .tstat {font-family: 'Space Mono', monospace;}
-.big-num {font-family: 'Bebas Neue', sans-serif;font-size: 48px;letter-spacing: 2px;line-height: 1;}
 .tstat-label {font-size: 9px;letter-spacing: 2px;text-transform: uppercase;color: var(--dim);margin-top: 2px;}
+.big-num {font-family: 'Bebas Neue', sans-serif;font-size: 48px;letter-spacing: 2px;line-height: 1;}
+
+/* ──────────── TAB 2: WASTE REGISTER ──────────── */
 .waste-grid {display: grid;grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));gap: 2px;padding: 2px;}
 .waste-card {background: var(--charcoal);padding: 28px;position: relative;overflow: hidden;}
 .waste-card::before {content: '';position: absolute;top: 0; left: 0;width: 4px; height: 100%;}
@@ -102,6 +359,8 @@ header {padding: 48px 48px 24px;border-bottom: 1px solid var(--steel);display: f
 .waste-category {font-family: 'Bebas Neue', sans-serif;font-size: 22px;letter-spacing: 2px;margin-bottom: 8px;color: var(--white);}
 .waste-desc {font-size: 13px;line-height: 1.6;color: var(--light);margin-bottom: 16px;}
 .waste-evidence {font-family: 'Space Mono', monospace;font-size: 10px;color: var(--dim);border-left: 2px solid var(--steel);padding-left: 12px;line-height: 1.6;font-style: italic;}
+
+/* ──────────── TAB 3: P&L BREAKDOWN ──────────── */
 .pnl-grid {display: grid;grid-template-columns: 1fr 1fr;gap: 2px;padding: 2px;}
 .pnl-card {background: var(--charcoal);padding: 32px;}
 .pnl-title {font-family: 'Bebas Neue', sans-serif;font-size: 20px;letter-spacing: 2px;color: var(--dim);margin-bottom: 20px;}
@@ -115,6 +374,8 @@ header {padding: 48px 48px 24px;border-bottom: 1px solid var(--steel);display: f
 .cost-gold { color: var(--gold); }
 .insight-box {background: var(--steel);border-left: 3px solid var(--gold);padding: 16px 20px;margin-top: 20px;font-size: 13px;line-height: 1.7;color: var(--light);}
 .insight-box strong { color: var(--gold); }
+
+/* ──────────── TAB 4: KAIZEN BURSTS ──────────── */
 .kaizen-grid {display: grid;grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));gap: 2px;padding: 2px;}
 .kaizen-card {background: var(--charcoal);padding: 28px;position: relative;overflow: hidden;}
 .kaizen-num {font-family: 'Bebas Neue', sans-serif;font-size: 64px;color: var(--steel);position: absolute;top: 8px; right: 16px;line-height: 1;}
@@ -128,6 +389,8 @@ header {padding: 48px 48px 24px;border-bottom: 1px solid var(--steel);display: f
 .kaizen-actions li {font-family: 'Space Mono', monospace;font-size: 10px;color: var(--dim);padding: 4px 0 4px 16px;position: relative;line-height: 1.4;}
 .kaizen-actions li::before {content: '→';position: absolute;left: 0;color: var(--gold);}
 .kaizen-impact {margin-top: 16px;padding: 10px 14px;border: 1px solid var(--gold-dim);font-family: 'Space Mono', monospace;font-size: 10px;color: var(--gold);letter-spacing: 0.5px;}
+
+/* TOOLTIP / MODAL */
 .detail-modal {display: none;position: fixed;inset: 0;background: rgba(0,0,0,0.85);z-index: 500;align-items: center;justify-content: center;padding: 24px;}
 .detail-modal.open { display: flex; }
 .modal-inner {background: var(--charcoal);border: 1px solid var(--gold);max-width: 560px;width: 100%;padding: 36px;position: relative;max-height: 80vh;overflow-y: auto;}
@@ -145,12 +408,16 @@ header {padding: 48px 48px 24px;border-bottom: 1px solid var(--steel);display: f
 .tag-red { background: var(--red-dim); color: var(--red); border: 1px solid var(--red); }
 .tag-gold { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--gold); }
 .tag-green { background: var(--green-dim); color: var(--green); border: 1px solid var(--green); }
+
+/* Scrollbar */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--charcoal); }
 ::-webkit-scrollbar-thumb { background: var(--steel); border-radius: 3px; }
 </style>
+
 </head>
 <body>
+
 <header>
   <div>
     <div class="logo">OYD<br>LIVE</div>
@@ -170,10 +437,432 @@ header {padding: 48px 48px 24px;border-bottom: 1px solid var(--steel);display: f
   <button class="tab-btn" onclick="switchTab(event, 'kaizen')">Kaizen Bursts</button>
 </nav>
 
-<div id="tab-vsm" class="tab-content active"><div class="vsm-container"><p>Content replaced per request.</p></div></div>
-<div id="tab-waste" class="tab-content"><div class="waste-grid"><div class="waste-card type2"><div class="waste-type-label">Type 2 — Pure Waste</div><div class="waste-category">Waiting on Kylene</div><div class="waste-desc">Kylene (venue GM) is a single-point dependency...</div></div></div></div>
-<div id="tab-pnl" class="tab-content"><div class="pnl-grid"><div class="pnl-card"><div class="pnl-title">Revenue Breakdown — Dec 2025 to Feb 2026</div></div></div></div>
-<div id="tab-kaizen" class="tab-content"><div class="kaizen-grid"><div class="kaizen-card"><div class="kaizen-num">01</div><div class="kaizen-priority priority-high">● High Priority</div><div class="kaizen-title">Get Direct F&amp;B POS Access</div></div></div></div>
+<div id="tab-vsm" class="tab-content active">
+<div class="vsm-container">
+
+  <div class="vsm-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--gold)"></div> Standard Process</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div> Bottleneck / Type 2 Waste</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div> Friction / Type 1 Waste</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Value-Creating Step</div>
+    <div class="legend-item" style="margin-left:auto; font-family:'Space Mono',monospace; font-size:10px; color:var(--dim)">↑ Click any box for detail</div>
+  </div>
+
+  <div class="stream-wrapper">
+    <div class="stream-label">▸ STREAM 1 — BOOKING &amp; CONTRACTING</div>
+    <div class="stream-row">
+
+      <div class="process-box good" onclick="openModal('m1')">
+        <div class="process-num">01</div>
+        <div class="process-name">Opportunity Identified</div>
+        <div class="process-time">
+          <span class="time-val">1–3d</span><span class="time-label">Work Time</span>
+          <span class="time-val" style="color:var(--dim)">0d</span><span class="time-label">Wait Time</span>
+        </div>
+      </div>
+
+      <div class="connector"><div class="connector-line"></div></div>
+
+      <div class="process-box warning" onclick="openModal('m2')">
+        <div class="process-num">02</div>
+        <div class="process-name">Go/No-Go &amp; Budget Build</div>
+        <div class="process-time">
+          <span class="time-val">1–2d</span><span class="time-label">Work Time</span>
+          <span class="time-val" style="color:var(--orange)">2–5d</span><span class="time-label">Wait Time</span>
+        </div>
+      </div>
+
+      <div class="connector">
+        <div class="connector-line"></div>
+        <div class="waste-badge">WAITING</div>
+      </div>
+
+      <div class="process-box bottleneck" onclick="openModal('m3')">
+        <div class="process-num">03</div>
+        <div class="process-name">Contracting &amp; Deposit</div>
+        <div class="process-time">
+          <span class="time-val">2–4d</span><span class="time-label">Work Time</span>
+          <span class="time-val" style="color:var(--red)">7–21d</span><span class="time-label">Wait Time</span>
+        </div>
+      </div>
+
+      <div class="connector">
+        <div class="connector-line problem"></div>
+        <div class="waste-badge">DEFECT RISK</div>
+      </div>
+
+      <div class="process-box warning" onclick="openModal('m4')">
+        <div class="process-num">04</div>
+        <div class="process-name">Ticketmaster Build</div>
+        <div class="process-time">
+          <span class="time-val">2–5d</span><span class="time-label">Work Time</span>
+          <span class="time-val" style="color:var(--orange)">1–3d</span><span class="time-label">Wait Time</span>
+        </div>
+      </div>
+
+      <div class="connector"><div class="connector-line"></div></div>
+
+      <div class="process-box good" onclick="openModal('m5')">
+        <div class="process-num">05</div>
+        <div class="process-name">On-Sale Launch</div>
+        <div class="process-time">
+          <span class="time-val">1d</span><span class="time-label">Work Time</span>
+          <span class="time-val" style="color:var(--dim)">0d</span><span class="time-label">Wait Time</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="stream-label">▸ STREAM 2 — MARKETING &amp; SALES</div>
+    <div class="stream-row">
+
+      <div class="process-box warning" onclick="openModal('m6')">
+        <div class="process-num">06</div>
+        <div class="process-name">Marketing Launch</div>
+        <div class="process-time">
+          <span class="time-val">1–2d</span><span class="time-label">Work Time</span>
+          <span class="time-val" style="color:var(--orange)">2–5d</span><span class="time-label">Wait Time (assets)</span>
+        </div>
+      </div>
+
+      <div class="connector">
+        <div class="connector-line problem"></div>
+        <div class="waste-badge">NO ATTRIBUTION</div>
+      </div>
+
+      <div class="process-box bottleneck" onclick="openModal('m7')">
+        <div class="process-num">07</div>
+        <div class="process-name">Ticket Sales Monitoring</div>
+        <div class="process-time">
+          <span class="time-val">Ongoing</span><span class="time-label">Work Time</span>
+          <span class="time-val" style="color:var(--red)">No CRM</span><span class="time-label">Gap</span>
+        </div>
+      </div>
+
+      <div class="connector">
+        <div class="connector-line"></div>
+      </div>
+
+      <div class="process-box warning" onclick="openModal('m8')">
+        <div class="process-num">08</div>
+        <div class="process-name">Sponsorship Pipeline</div>
+        <div class="process-time">
+          <span class="time-val">Ongoing</span><span class="time-label">Work Time</span>
+          <span class="time-val" style="color:var(--red)">27 stalled</span><span class="time-label">Tasks Overdue</span>
+        </div>
+      </div>
+
+      <div class="connector">
+        <div class="connector-line problem"></div>
+        <div class="waste-badge">HOLDING</div>
+      </div>
+
+      <div class="process-box good" onclick="openModal('m9')">
+        <div class="process-num">09</div>
+        <div class="process-name">Walk-Up / Pre-Show Sales</div>
+        <div class="process-time">
+          <span class="time-val">Day-of</span><span class="time-label">Work Time</span>
+          <span class="time-val" style="color:var(--green)">High ROI</span><span class="time-label">Signal</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="stream-label">▸ STREAM 3 — PRODUCTION ADVANCE &amp; EXECUTION</div>
+    <div class="stream-row">
+
+      <div class="process-box warning" onclick="openModal('m10')">
+        <div class="process-num">10</div>
+        <div class="process-name">Production Advance</div>
+        <div class="process-time">
+          <span class="time-val">2–4d</span><span class="time-label">Work Time</span>
+          <span class="time-val" style="color:var(--orange)">Informal</span><span class="time-label">No Template</span>
+        </div>
+      </div>
+
+      <div class="connector">
+        <div class="connector-line"></div>
+      </div>
+
+      <div class="process-box warning" onclick="openModal('m11')">
+        <div class="process-num">11</div>
+        <div class="process-name">Staffing &amp; Venue Coord</div>
+        <div class="process-time">
+          <span class="time-val">1–3d</span><span class="time-label">Work Time</span>
+          <span class="time-val" style="color:var(--orange)">Kylene dep.</span><span class="time-label">Bottleneck</span>
+        </div>
+      </div>
+
+      <div class="connector">
+        <div class="connector-line problem"></div>
+        <div class="waste-badge">HANDOFF</div>
+      </div>
+
+      <div class="process-box good" onclick="openModal('m12')">
+        <div class="process-num">12</div>
+        <div class="process-name">Day-of Show Execution</div>
+        <div class="process-time">
+          <span class="time-val">12–16h</span><span class="time-label">Work Time</span>
+          <span class="time-val" style="color:var(--green)">Value Created</span><span class="time-label">Signal</span>
+        </div>
+      </div>
+
+      <div class="connector"><div class="connector-line"></div></div>
+
+      <div class="process-box bottleneck" onclick="openModal('m13')">
+        <div class="process-num">13</div>
+        <div class="process-name">Settlement &amp; F&amp;B Reconcile</div>
+        <div class="process-time">
+          <span class="time-val">1–3d</span><span class="time-label">Work Time</span>
+          <span class="time-val" style="color:var(--red)">Data fragmented</span><span class="time-label">Gap</span>
+        </div>
+      </div>
+
+      <div class="connector">
+        <div class="connector-line problem"></div>
+        <div class="waste-badge">REWORK</div>
+      </div>
+
+      <div class="process-box warning" onclick="openModal('m14')">
+        <div class="process-num">14</div>
+        <div class="process-name">Financial Close &amp; Archive</div>
+        <div class="process-time">
+          <span class="time-val">1–2d</span><span class="time-label">Work Time</span>
+          <span class="time-val" style="color:var(--orange)">No debrief</span><span class="time-label">Gap</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TIMELINE BAR -->
+    <div class="timeline-section">
+      <div class="timeline-label">Lead Time Visualization — Concept to Settled Show (Concert Shows)</div>
+      <div class="timeline-bar">
+        <div class="tbar-work" style="width:12%">12%<br>WORK</div>
+        <div class="tbar-wait" style="width:88%">88% WAITING / COORDINATION FRICTION</div>
+      </div>
+      <div style="display:flex; gap:4px; font-family:'Space Mono',monospace; font-size:9px; color:var(--dim);">
+        <span>DAY 0</span>
+        <span style="margin-left:10%;color:var(--red)">▲ Contract drag</span>
+        <span style="margin-left:20%;color:var(--orange)">▲ Asset waiting</span>
+        <span style="margin-left:15%;color:var(--red)">▲ Settlement rework</span>
+        <span style="margin-left:auto">DAY ~90</span>
+      </div>
+      <div class="timeline-stats">
+        <div class="tstat">
+          <div class="big-num" style="color:var(--red)">~90d</div>
+          <div class="tstat-label">Total Lead Time</div>
+        </div>
+        <div class="tstat">
+          <div class="big-num" style="color:var(--green)">~11d</div>
+          <div class="tstat-label">Actual Work Time</div>
+        </div>
+        <div class="tstat">
+          <div class="big-num" style="color:var(--gold)">88%</div>
+          <div class="tstat-label">Idle / Friction</div>
+        </div>
+        <div class="tstat">
+          <div class="big-num" style="color:var(--orange)">$1,234</div>
+          <div class="tstat-label">Total Marketing Spend (8 Shows)</div>
+        </div>
+        <div class="tstat">
+          <div class="big-num" style="color:var(--red)">27</div>
+          <div class="tstat-label">Stalled Sponsorship Tasks</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<div id="tab-waste" class="tab-content">
+<div class="waste-grid">
+
+  <div class="waste-card type2">
+    <div class="waste-type-label">Type 2 — Pure Waste</div>
+    <div class="waste-category">Waiting on Kylene</div>
+    <div class="waste-desc">Kylene (venue GM) is a single-point dependency for staffing numbers, security costs, F&amp;B data, changeover costs, social media approvals, and even comp ticket authorization. Every workflow grinds to a halt waiting on her response — but OYD has no authority to bypass her.</div>
+    <div class="waste-evidence">"I'm assuming Kylene and her team have done nothing" — Jason, Dec 3<br><br>"Literally nothing from Kylene or her team on it or anything else" — Chris, Dec 3<br><br>"The org chart structure of relying on Kylene as the point to collect all info is gone" — Alex, Mar 3</div>
+    <div class="tag-row"><span class="tag tag-red">WAITING</span><span class="tag tag-red">HANDOFF</span></div>
+  </div>
+
+  <div class="waste-card type2">
+    <div class="waste-type-label">Type 2 — Pure Waste</div>
+    <div class="waste-category">F&amp;B Data Black Hole</div>
+    <div class="waste-desc">Food &amp; Beverage numbers — a major revenue line ($25–40K across the period) — can't be pulled independently. OYD has to ask Pat (F&amp;B manager) and wait. No POS login. Data often arrives days after settlement is due. This means settlements are incomplete, estimates are used, and rework happens.</div>
+    <div class="waste-evidence">"See if we can get a log in for POS system to pull them ourselves" — Jason, Jan 27<br><br>"I still need to get final hotel receipt... F&amp;B from Pat" — Mike, Feb 20</div>
+    <div class="tag-row"><span class="tag tag-red">WAITING</span><span class="tag tag-red">DEFECT</span><span class="tag tag-red">OVERPROCESSING</span></div>
+  </div>
+
+  <div class="waste-card type2">
+    <div class="waste-type-label">Type 2 — Pure Waste</div>
+    <div class="waste-category">Duplicate Data Entry</div>
+    <div class="waste-desc">The same event data lives in: Ticketmaster (tickets), Prism (settlement/offers), ClickUp (tasks), Google Drive (docs/contracts), WhatsApp (decisions), and spreadsheets. Every system is manually maintained. Jason noted TM numbers needed to be re-checked for post-settlement adjustments because TM sometimes corrects totals silently.</div>
+    <div class="waste-evidence">"After pulling settlement numbers on TM, make sure to go back a few days later and double check, no adjustments were made on their end" — Jason, Jan 27<br><br>"The renter % was set to 3500%" — Prism data entry error, Feb 17</div>
+    <div class="tag-row"><span class="tag tag-red">OVERPROCESSING</span><span class="tag tag-red">DEFECT</span></div>
+  </div>
+
+  <div class="waste-card type2">
+    <div class="waste-type-label">Type 2 — Pure Waste</div>
+    <div class="waste-category">Sponsorship Pipeline Stall</div>
+    <div class="waste-desc">27 sponsorship tasks are overdue and stalled. Top 5 include M&amp;T Bank, Dunkin Donuts, Five Star Bank, Upstate Equipment, and Smokehouse Coffee — all stuck for weeks in "holding" or "targeting" status with no clear escalation path. Sponsorship is described as the key to profitability on concert shows.</div>
+    <div class="waste-evidence">"That's why it's all sponsorship driven" — Jason, Feb 26<br><br>"NON as of now is losing money" — Jason, Feb 26</div>
+    <div class="tag-row"><span class="tag tag-red">WAITING</span><span class="tag tag-red">INVENTORY</span></div>
+  </div>
+
+  <div class="waste-card type2">
+    <div class="waste-type-label">Type 2 — Pure Waste</div>
+    <div class="waste-category">No Fan CRM / Email List</div>
+    <div class="waste-desc">15,000+ historical ticket buyer contacts exist in Ticketmaster but OYD lacks the infrastructure to email them systematically. Ruggalion (existing digital vendor) gatekeeps the proprietary list. Every show has to rely on cold Facebook ads instead of warm database marketing. This inflates marketing cost and reduces conversion.</div>
+    <div class="waste-evidence">"It bothers me that we don't have access to a mailing list for LECOM" — Chris, Nov 27<br><br>"With 15,000 contacts we literally can't fail. We need to hammer this list" — Alex, Nov 30</div>
+    <div class="tag-row"><span class="tag tag-red">MOTION</span><span class="tag tag-red">OVERPRODUCTION</span></div>
+  </div>
+
+  <div class="waste-card type2">
+    <div class="waste-type-label">Type 2 — Pure Waste</div>
+    <div class="waste-category">Contracting Confusion</div>
+    <div class="waste-desc">Three contract types exist (external simple, external full, internal) without clear SOP on which to use when. Addendums issued over WhatsApp. Facility fees accidentally added to OYD-produced shows. Signatures tracked across DocuSign, GHL, and wet ink — often unclear which version is authoritative.</div>
+    <div class="waste-evidence">"There are two export views... Internal is for us/LECOM. True P&amp;L of the event" — Jason, Jan 27<br><br>"3 options to choose from idk which you prefer" — Mike sharing 3 settlement versions, Jan 27</div>
+    <div class="tag-row"><span class="tag tag-red">DEFECT</span><span class="tag tag-red">OVERPROCESSING</span></div>
+  </div>
+
+  <div class="waste-card type1">
+    <div class="waste-type-label">Type 1 — Necessary Non-Value</div>
+    <div class="waste-category">ASCAP / Licensing</div>
+    <div class="waste-desc">Music licensing compliance is required but creates friction. The venue hadn't paid or organized ASCAP properly before OYD took over, creating urgent follow-up requirements mid-show-week.</div>
+    <div class="waste-evidence">"Can you get ASCAP figured out ASAP. Tim Poole is calling and asking" — Jason, Feb 27</div>
+    <div class="tag-row"><span class="tag tag-gold">REQUIRED</span><span class="tag tag-gold">MINIMIZE</span></div>
+  </div>
+
+  <div class="waste-card type1">
+    <div class="waste-type-label">Type 1 — Necessary Non-Value</div>
+    <div class="waste-category">Union / Changeover Cost</div>
+    <div class="waste-desc">Union changeover is required for arena reconfiguration between hockey and concert setup. $2,000/changeover is fixed cost OYD must absorb. Cannot be eliminated but can be batched or minimized through smarter scheduling.</div>
+    <div class="waste-evidence">Changeover: -$2,000 per show (P&amp;L)<br>Union labor: -$4,647 (P&amp;L)</div>
+    <div class="tag-row"><span class="tag tag-gold">REQUIRED</span><span class="tag tag-gold">BATCH</span></div>
+  </div>
+
+  <div class="waste-card type1">
+    <div class="waste-type-label">Type 1 — Necessary Non-Value</div>
+    <div class="waste-category">W-9 Collection</div>
+    <div class="waste-desc">Every artist payout requires a W-9 before Kylene/LECOM finance will release payment. Collecting these from agents after the show creates payment delays. Blue Eyed Soul had partial W-9s; Night of Nicks had confusion over agent vs. artist W-9s.</div>
+    <div class="waste-evidence">"All approvals and releases need signature page and W-9" — Alex, Jan 27</div>
+    <div class="tag-row"><span class="tag tag-gold">REQUIRED</span><span class="tag tag-gold">FRONT-LOAD</span></div>
+  </div>
+
+</div>
+</div>
+
+<div id="tab-pnl" class="tab-content">
+<div class="pnl-grid">
+
+  <div class="pnl-card">
+    <div class="pnl-title">Revenue Breakdown — Dec 2025 to Feb 2026</div>
+
+    <div class="show-row">
+      <div><div class="show-name">Gross Ticket Revenue</div></div>
+      <div class="show-cost cost-green">$120,517</div>
+    </div>
+    <div class="show-row">
+      <div><div class="show-name">F&amp;B (All Shows)</div></div>
+      <div class="show-cost cost-green">$60,363</div>
+    </div>
+    <div class="show-row">
+      <div><div class="show-name">Rental Income (4 shows)</div></div>
+      <div class="show-cost cost-green">$49,295</div>
+    </div>
+    <div class="show-row">
+      <div><div class="show-name">Merch Rebate</div></div>
+      <div class="show-cost cost-green">$1,442</div>
+    </div>
+    <div class="show-row">
+      <div><div class="show-name">Sponsorship (CCYB + 1)</div></div>
+      <div class="show-cost cost-green">$7,500</div>
+    </div>
+    <div class="show-row">
+      <div><div class="show-name">Facility Fees (Collected)</div></div>
+      <div class="show-cost cost-green">$2,800</div>
+    </div>
+    <div class="show-row" style="border-top:2px solid var(--gold); margin-top:4px; padding-top:16px;">
+      <div><div class="show-name" style="color:var(--gold); font-size:15px">Total Revenue</div></div>
+      <div class="show-cost cost-gold" style="font-size:18px">$189,286</div>
+    </div>
+
+    <div class="insight-box">
+      <strong>Key Lean insight:</strong> F&amp;B + Rentals = $109K of $189K total revenue — 57% of all revenue comes from sources that are <em>not directly tied to show headliner quality</em>. Your rental shows (Wrestling, Gladius, Kids Fest, NCAA) cost nearly zero in talent and likely drove significant F&amp;B. The "risky" concert model is propped up by the "boring" rental model.
+    </div>
+
+  </div>
+
+  <div class="pnl-card">
+    <div class="pnl-title">Artist Cost vs. Revenue Risk by Show</div>
+
+    <div class="show-row"><div><div class="show-name">Chase Rice</div><div class="show-type">Concert — Country</div></div><div class="show-cost cost-red">-$28,000</div></div>
+    <div class="show-row"><div><div class="show-name">Night of Nicks + Blue Eyed Soul</div><div class="show-type">Concert — Tribute</div></div><div class="show-cost cost-red">-$4,000</div></div>
+    <div class="show-row"><div><div class="show-name">Dave Matthews Tribute Band</div><div class="show-type">Concert — Tribute</div></div><div class="show-cost cost-red">-$4,500</div></div>
+    <div class="show-row"><div><div class="show-name">Dueling Pianos</div><div class="show-type">Concert — Interactive</div></div><div class="show-cost cost-red">-$1,650</div></div>
+    <div class="show-row"><div><div class="show-name">Southern Tier Wrestling</div><div class="show-type">Rental</div></div><div class="show-cost cost-green">$0 talent</div></div>
+    <div class="show-row"><div><div class="show-name">Gladius Fights</div><div class="show-type">Rental</div></div><div class="show-cost cost-green">$0 talent</div></div>
+    <div class="show-row"><div><div class="show-name">Kids Fest</div><div class="show-type">Rental</div></div><div class="show-cost cost-green">$0 talent</div></div>
+    <div class="show-row"><div><div class="show-name">NCAA Wrestling</div><div class="show-type">Rental</div></div><div class="show-cost cost-green">$0 talent</div></div>
+
+    <div class="insight-box">
+      <strong>The Chase Rice problem:</strong> One show ate $28K of $38K in total artist payouts. Night of Nicks was nearly loss-making at sellout — because production ($20K+), security ($13.5K), and staffing ($23K) are largely <em>fixed costs</em> whether the show draws 200 or 2,000 people. <strong>The path to profit on concert shows is sponsorship, not ticket volume alone.</strong>
+    </div>
+
+  </div>
+
+  <div class="pnl-card">
+    <div class="pnl-title">Expense Breakdown</div>
+
+    <div class="show-row"><div><div class="show-name">Production (Sound/Light/Stage)</div></div><div class="show-cost cost-red">-$24,648</div></div>
+    <div class="show-row"><div><div class="show-name">Security</div></div><div class="show-cost cost-red">-$13,591</div></div>
+    <div class="show-row"><div><div class="show-name">Venue Staffing (All)</div></div><div class="show-cost cost-red">-$9,831</div></div>
+    <div class="show-row"><div><div class="show-name">General Hospitality</div></div><div class="show-cost cost-red">-$5,595</div></div>
+    <div class="show-row"><div><div class="show-name">Rental Payout (to clients)</div></div><div class="show-cost cost-red">-$49,295</div></div>
+    <div class="show-row"><div><div class="show-name">Artist Payouts</div></div><div class="show-cost cost-red">-$38,150</div></div>
+    <div class="show-row"><div><div class="show-name">Marketing (8 Shows!)</div></div><div class="show-cost cost-gold">-$1,234</div></div>
+    <div class="show-row"><div><div class="show-name">LECOM/OYD Overhead</div></div><div class="show-cost cost-red">-$18,016</div></div>
+
+    <div class="insight-box">
+      <strong>Marketing is suspiciously cheap:</strong> $1,234 across 8 shows is &lt;0.7% of revenue. This is either a sign of exceptional organic reach, or a sign that significant marketing cost isn't being tracked here (staff time, Prism subscription, Pollstar, etc.). Either way — the <strong>15K existing buyer list is the most valuable untapped asset</strong> in the business.
+    </div>
+
+  </div>
+
+  <div class="pnl-card">
+    <div class="pnl-title">Two-Stream Model: Concert vs. Rental</div>
+    <div style="margin-bottom: 24px;">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:12px">RENTAL SHOWS (4 events)</div>
+      <div class="big-num" style="color:var(--green)">~$49K</div>
+      <div style="font-size:13px;color:var(--light);margin-top:4px">Revenue in the door. Near-zero talent cost. Fixed overhead still applies.</div>
+    </div>
+    <div style="margin-bottom: 24px;">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:12px">CONCERT SHOWS (4 events)</div>
+      <div class="big-num" style="color:var(--orange)">High risk</div>
+      <div style="font-size:13px;color:var(--light);margin-top:4px">Ticket revenue is primary, but sponsorship is the difference between loss and profit. Night of Nicks was losing money at near-sellout.</div>
+    </div>
+    <div class="insight-box">
+      <strong>Lean recommendation:</strong> Treat these as two distinct value streams with separate KPIs. For rentals, the VSM should focus on rental agreement standardization and F&amp;B maximization. For concerts, the VSM should focus on sponsor pipeline velocity and advance sales. They share infrastructure but they're different businesses.
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div id="tab-kaizen" class="tab-content">
+<div class="kaizen-grid">
+  <div class="kaizen-card"><div class="kaizen-num">01</div><div class="kaizen-priority priority-high">● High Priority</div><div class="kaizen-title">Get Direct F&amp;B POS Access</div><div class="kaizen-body">F&amp;B is your second-largest revenue line and the data lives behind Pat. Every settlement is delayed or estimated because you can't pull numbers yourself. This single access change would eliminate 2–3 days of settlement wait time on every show.</div><ul class="kaizen-actions"><li>Request login credentials from Marc / Pat for POS system</li><li>Build a post-show F&amp;B report template in Prism</li><li>Set F&amp;B number pull as a Day+1 standard task in ClickUp</li><li>Add F&amp;B close-out to security/staffing briefing checklist</li></ul><div class="kaizen-impact">Eliminates: 2–3 day settlement delay per show. Removes dependency on Pat and Kylene for core financial data.</div></div>
+  <div class="kaizen-card"><div class="kaizen-num">02</div><div class="kaizen-priority priority-high">● High Priority</div><div class="kaizen-title">Activate the 15K Buyer List</div><div class="kaizen-body">You have 15,000+ ticket buyer emails sitting in Ticketmaster from years of LECOM events. This is your highest-value marketing asset and it's dormant. Every paid Facebook ad you run is an admission that you can't reach warm buyers. Fix this before the next show.</div><ul class="kaizen-actions"><li>Set up Hive.co (already demoed) with the exported CSV</li><li>Create events@ LECOM send domain — Kylene or Marc to authorize</li><li>Segment by genre / past event type for targeted sends</li><li>Build automated post-show "thanks + next show" sequence</li><li>Kill cold Facebook ad spend — shift to list-first marketing</li></ul><div class="kaizen-impact">Eliminates: Cold ad waste. Reduces customer acquisition cost from ~$X/ticket to near-zero for warm buyers.</div></div>
+  <div class="kaizen-card"><div class="kaizen-num">03</div><div class="kaizen-priority priority-high">● High Priority</div><div class="kaizen-title">Standardize Settlement in Prism</div><div class="kaizen-body">Settlement is being run differently each show — different versions sent, uncertainty about which is authoritative, facility fees accidentally added, TM numbers needing double-verification. You need one settlement template, one approval chain, and one filing location.</div><ul class="kaizen-actions"><li>Build master Prism settlement template (concert + rental versions)</li><li>Define: Internal settlement ≠ External settlement — Jason reviews external before send</li><li>Create W-9 collection checklist — collect at contract signing, not post-show</li><li>Add "TM Double Tap" reminder as standard Day+7 task</li><li>Establish 48h settlement target from show close</li></ul><div class="kaizen-impact">Eliminates: Rework, confusion, late artist payments. Builds trust with venue finance (Jodi/Deane).</div></div>
+  <div class="kaizen-card"><div class="kaizen-num">04</div><div class="kaizen-priority priority-high">● High Priority</div><div class="kaizen-title">Break Kylene Dependency — Direct Dept Access</div><div class="kaizen-body">Kylene is the single point of failure for staffing, security invoices, F&amp;B numbers, social media, comp approvals, and changeover coordination. This is identified in the chat logs and confirmed in the March 3rd org chart conversation. Marc has authorized going direct to department leads.</div><ul class="kaizen-actions"><li>Map all recurring Kylene touchpoints to their direct department owners</li><li>Get direct contacts: Pat (F&amp;B), security vendor, changeover crew</li><li>Send Marc the org chart with OYD's recommended communication flow</li><li>CC Kylene on communications initially — fade over 60 days</li></ul><div class="kaizen-impact">Eliminates: The most cited bottleneck in 3 months of chat logs. Reduces average task wait time by estimated 2–5 days per show.</div></div>
+  <div class="kaizen-card"><div class="kaizen-num">05</div><div class="kaizen-priority priority-med">● Medium Priority</div><div class="kaizen-title">Sponsorship Pipeline SOP</div><div class="kaizen-body">27 sponsorship tasks are overdue. The root cause isn't lack of leads — it's lack of a defined follow-up process. Five Star Bank is stuck because local reps can't authorize. M&amp;T Bank needs a warm intro from Marc. Each one has a different next step that isn't documented.</div><ul class="kaizen-actions"><li>Define 3-stage escalation: Email → Call → Marc intro → Park for 90d</li><li>Set 7-day follow-up SLA as ClickUp automation</li><li>Use Marc's network explicitly — identify who in his rolodex can unblock each deal</li><li>Create tiered sponsorship packages ($2.5K / $5K / $10K / Title) with clear deliverables</li><li>Weekly 15-min sponsorship pipeline review</li></ul><div class="kaizen-impact">Target: Close 3 of 5 top stalled sponsors by next show. At $2.5–5K each = $7.5–15K that can make a marginal concert profitable.</div></div>
+  <div class="kaizen-card"><div class="kaizen-num">06</div><div class="kaizen-priority priority-med">● Medium Priority</div><div class="kaizen-title">Front-Load Artist Logistics</div><div class="waste-desc" style="font-size:13px;line-height:1.7;color:var(--light);margin-bottom:16px">W-9 collection, production invoices, ASCAP licensing, and advance sheets are all being chased after booking instead of integrated into the contracting workflow. This creates show-week scrambles that are visible in the chat logs for every concert.</div><ul class="kaizen-actions"><li>Contract checklist: W-9, payment info, insurance cert, tech rider required at signing</li><li>Advance sheet template in Google Drive — assigned Day+14 after contract</li><li>Production invoice: required 30 days before show, not day-of</li><li>ASCAP: confirm annual license covers all shows — one action, not per-show</li></ul><div class="kaizen-impact">Eliminates: Show-week fire drills. Reduces Mike's coordination load the week of each show by estimated 30–40%.</div></div>
+  <div class="kaizen-card"><div class="kaizen-num">07</div><div class="kaizen-priority priority-low">● Next Phase</div><div class="kaizen-title">Separate Social Channels — LECOM Events vs. Hockey</div><div class="kaizen-body">Concert marketing is competing with hockey content on the same feeds. Chris and Jason have identified this and Marc has been notified. A dedicated LECOM Events page would allow event-specific targeting, algorithm optimization, and audience growth without hockey diluting it.</div><ul class="kaizen-actions"><li>Present Covelli Center / Youngstown Phantoms example to Marc as model</li><li>Create LECOM Events Center Instagram and Facebook pages</li><li>Migrate event content — keep existing LECOM page for hockey/hockey fans</li><li>Add "follow us" CTA to every show for next-event notification</li></ul><div class="kaizen-impact">Builds a dedicated concert audience over time — reduces dependence on paid ads and cold outreach per show.</div></div>
+  <div class="kaizen-card"><div class="kaizen-num">08</div><div class="kaizen-priority priority-low">● Next Phase</div><div class="kaizen-title">Rental Agreement Standardization</div><div class="kaizen-body">Rental shows are low-risk but the contracting is ad hoc. No minimum rental ($5K discussed for NCAA but not formalized). Revenue share triggers not standard. Jason created an OSFL Orchestra template in Feb — that's the right direction. Now productize it.</div><ul class="kaizen-actions"><li>Prism rental template: min $9K covering security + staffing + changeover + cleaning</li><li>Rev share clause: only triggers once fixed expenses recouped</li><li>Facility fee ($2–4/ticket) as default add-on for all rental ticket sales</li><li>F&amp;B mandatory for all rental events — don't leave it as opt-in</li></ul><div class="kaizen-impact">Turns rental shows from "low-risk break-even" to "reliable profitable base." Funds concert risk-taking.</div></div>
+</div>
+</div>
 
 <div class="detail-modal" id="modal">
   <div class="modal-inner">
@@ -185,11 +874,47 @@ header {padding: 48px 48px 24px;border-bottom: 1px solid var(--steel);display: f
 </div>
 
 <script>
-const modals = {m1:{title:'Step 01 — Opportunity Identified',subtitle:'Problem-Solving Stream · Booking Flow',body:'<h4>What happens here</h4>'}};
-function openModal(id){const m=modals[id];if(!m)return;document.getElementById('modal-title').textContent=m.title;document.getElementById('modal-subtitle').textContent=m.subtitle;document.getElementById('modal-body').innerHTML=m.body;document.getElementById('modal').classList.add('open');}
-function closeModal(){document.getElementById('modal').classList.remove('open');}
-document.getElementById('modal').addEventListener('click',function(e){if(e.target===this) closeModal();});
-function switchTab(event,id){document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');event.target.classList.add('active');}
+const modals = {
+  m1: { title: 'Step 01 — Opportunity Identified', subtitle: 'Problem-Solving Stream · Booking Flow', body: `<h4>What happens here</h4><ul><li>Artist routing from agents (Providence Music Group, others)</li><li>Inbound rental inquiries from event organizers</li><li>Proactive Pollstar/Chartmetric research for bookable acts</li><li>Routing check: are they playing within 300 miles on nearby dates?</li></ul><h4>Observations from logs</h4><ul><li>Jason leads all artist relationships and inbound agent contact</li><li>Mike assigned Pollstar research from Day 1 of OYD's tenure</li><li>Demographic research (Elmira: 72% white, $43K median HHI) done early — good</li><li>Routing logic well understood — "if they play Pittsburgh on the 20th, we can route them for the 21st"</li></ul><div class='tag-row'><span class='tag tag-green'>VALUE CREATING</span><span class='tag tag-green'>NO WASTE IDENTIFIED</span></div>` },
+  m2: { title: 'Step 02 — Go/No-Go & Budget Build', subtitle: 'Problem-Solving Stream · Decision Gate', body: `<h4>What happens here</h4><ul><li>Jason builds financial proforma in a custom spreadsheet</li><li>Artist fee + estimated attendance + ticket tiers + expenses modeled</li><li>Quick "does this make sense?" gut check before offer</li></ul><h4>Waste observed</h4><ul><li>Proforma tool is a spreadsheet — not integrated with Prism</li><li>Budget assumptions (production cost, security, staffing) estimated, not standardized</li><li>No formal documented criteria for Go/No-Go — currently in Jason's head</li><li>Zoom shared once with team but no reusable playbook created</li></ul><h4>Lean opportunity</h4><ul><li>Standardize Go/No-Go checklist: artist fee ÷ expected capacity ÷ fixed costs = floor ticket price needed</li><li>Build this into Prism as a templated offer evaluation step</li></ul><div class='tag-row'><span class='tag tag-gold'>TYPE 1 WASTE</span><span class='tag tag-gold'>STANDARDIZE</span></div>` },
+  m3: { title: 'Step 03 — Contracting & Deposit', subtitle: 'Problem-Solving Stream · Critical Bottleneck', body: `<h4>What happens here</h4><ul><li>Artist/agent sends contract or OYD generates offer via Prism</li><li>Review of terms, rider, cancellation clauses</li><li>Pass-through agreement sent to Kylene/LECOM for signature</li><li>Deposit coordinated through Jodi/Deane (LECOM finance)</li><li>W-9 collection (often chased post-show instead of pre)</li></ul><h4>Waste observed</h4><ul><li>3 versions of settlement/contract documents created per show (internal, external simple, external full)</li><li>Signatures tracked across DocuSign, GHL, wet ink — no single system</li><li>NCAA Wrestling had no contract — just a "quote" that needed restructuring</li><li>Night of Nicks: facility fee accidentally added, required addendum</li><li>Payment release chain: OYD → Jodi → Deane → LECOM check → artist agent → artist. Minimum 3 handoffs</li><li>DMTB artist (Forty Two Inc.) didn't receive payment check on time — required escalation calls</li></ul><div class='tag-row'><span class='tag tag-red'>BOTTLENECK</span><span class='tag tag-red'>DEFECT</span><span class='tag tag-red'>WAITING</span></div>` },
+  m4: { title: 'Step 04 — Ticketmaster Event Build', subtitle: 'Information Management Stream · Setup', body: `<h4>What happens here</h4><ul><li>Event created in Ticketmaster / Prism</li><li>Seat map configured — kills/opens by section</li><li>Ticket tiers priced (P1/P2/P3, VIP, GA, etc.)</li><li>Facility fees, taxes configured</li><li>Comp tickets issued</li></ul><h4>Waste observed</h4><ul><li>Prism data entry error: renter % set to 3,500% — generated $102K false projection before caught</li><li>CAD for floor layout doesn't exist to scale — seat counts estimated by math</li><li>TM changes require support ticket — experienced days of delay on Cyber Monday deal activation</li><li>TM post-settlement numbers can change silently — requires "Double Tap" re-check 7+ days later</li><li>Naming convention for ticket tiers inconsistent across shows (P1 vs. ADULT vs. Advance)</li></ul><h4>Lean opportunity</h4><ul><li>Scale CAD drawing of venue floor — one authoritative document for all show builds</li><li>Standard ticket tier naming and pricing template per show type</li></ul><div class='tag-row'><span class='tag tag-gold'>DEFECT RISK</span><span class='tag tag-gold'>STANDARDIZE</span></div>` },
+  m5: { title: 'Step 05 — On-Sale Launch', subtitle: 'Information Management Stream · Revenue Start', body: `<h4>What happens here</h4><ul><li>Public announcement via social media</li><li>Presale window (if applicable)</li><li>Paid ad campaign launch on Facebook/Instagram</li><li>Ticketmaster link shared across all channels</li></ul><h4>Observations</h4><ul><li>Chase Rice had Black Friday and Cyber Monday deal activations — creative, responsive marketing</li><li>Kylene posted Chase Rice without a Ticketmaster link — basic execution failure on venue's side</li><li>Attribution not tracked on Chase Rice (UTM codes not set up in time)</li><li>LECOM's proprietary CRM (Ruggalion) gatekeeps the email list — no email blast capability</li></ul><div class='tag-row'><span class='tag tag-green'>VALUE CREATING</span><span class='tag tag-gold'>ATTRIBUTION GAP</span></div>` },
+  m6: { title: 'Step 06 — Marketing Launch', subtitle: 'Information Management Stream · Demand Creation', body: `<h4>What happens here</h4><ul><li>Marketing assets requested from artist's publicist</li><li>Social posts created (Chris leads)</li><li>Facebook/Instagram ads configured and launched</li><li>Countdown posts and urgency campaigns</li><li>Radio and press coordination (via Kylene initially)</li></ul><h4>Waste observed</h4><ul><li>Asset wait: DMTB publicist took days to respond; Chase Rice assets needed external downloading</li><li>Marketing competing with hockey on shared LECOM social accounts</li><li>No attribution on Chase Rice (UTMs set up for subsequent shows — improvement noted)</li><li>Total marketing spend for 8 shows: $1,234 — either genius or undercounting</li><li>Radio coordination dependent on Kylene/Matt Dishler connections</li></ul><div class='tag-row'><span class='tag tag-gold'>WAITING (ASSETS)</span><span class='tag tag-gold'>MOTION</span></div>` },
+  m7: { title: 'Step 07 — Ticket Sales Monitoring', subtitle: 'Information Management Stream · Ongoing', body: `<h4>What happens here</h4><ul><li>Daily/weekly check of Ticketmaster sales dashboard</li><li>Pricing adjustments (flex pricing, section opens)</li><li>Marketing strategy pivots based on sales velocity</li></ul><h4>Observations</h4><ul><li>Jason watches TM daily — good discipline</li><li>Mike tracks TM reports — slight tool confusion early on (historical vs. real-time views)</li><li>Walk-up sales repeatedly mentioned as a meaningful revenue source — not forecasted</li><li>Night of Nicks: 12 GA sold DOS — strong walk-up signal worth tracking</li><li>No CRM to track which buyer segments are converting</li></ul><div class='tag-row'><span class='tag tag-gold'>NO CRM</span><span class='tag tag-green'>TRACKING IMPROVING</span></div>` },
+  m8: { title: 'Step 08 — Sponsorship Pipeline', subtitle: 'Information Management Stream · Revenue Gap', body: `<h4>What happens here</h4><ul><li>Target companies identified and added to ClickUp</li><li>Outreach initiated (Jason, Alex, Matt Dishler primarily)</li><li>Sponsorship packages created (Chris built web-based package page Jan 30)</li><li>Negotiations and contracts via GHL</li></ul><h4>Waste observed — 27 tasks stalled</h4><ul><li>Five Star Bank: can't reach decision-maker — local contacts lack authority</li><li>M&amp;T Bank: needs Marc warm intro — still pending</li><li>Dunkin Donuts: David (contact) not responding to repeated follow-ups</li><li>Upstate Equipment: Joelle is out of office — stalled since Jan 9</li><li>No defined escalation path or follow-up SLA</li><li>Sponsorship is identified as critical to concert profitability — but pipeline has no velocity</li></ul><div class='tag-row'><span class='tag tag-red'>BOTTLENECK</span><span class='tag tag-red'>WAITING</span><span class='tag tag-red'>NO SOP</span></div>` },
+  m9: { title: 'Step 09 — Walk-Up & Pre-Show Sales', subtitle: 'Information Management Stream · Day-of Revenue', body: `<h4>Observations</h4><ul><li>Walk-up sales consistently mentioned as a meaningful revenue source</li><li>Night of Nicks: 12 DOS tickets sold in the last 24h</li><li>GA conversion from reserved-to-GA strategy discussed for non-sellout scenarios</li><li>Box office coordination with Kylene's team (Darlene, cash box)</li></ul><h4>Lean opportunity</h4><ul><li>Build DOS sales expectation into every show proforma</li><li>Experiment with walk-up price incentives (e.g., better price at door than online = reverse of usual)</li><li>Track walk-up rate per show type to build predictive model</li></ul><div class='tag-row'><span class='tag tag-green'>VALUE CREATING</span><span class='tag tag-green'>UNDERTRACKED</span></div>` },
+  m10: { title: 'Step 10 — Production Advance', subtitle: 'Physical Transformation Stream · Pre-Show', body: `<h4>What happens here</h4><ul><li>Tech advance with artist's tour manager / production manager</li><li>Stage configuration, lighting, audio confirmed</li><li>Load-in schedule, run-of-show drafted</li><li>Hospitality rider fulfilled (catering, dressing rooms, hotel)</li></ul><h4>Observations</h4><ul><li>Mike drafted first advance sheet for Night of Nicks — good initiative, required significant follow-up</li><li>Show times, support act schedule, comp tickets all unknown until advance</li><li>Forty Two (production company) handles sound/light/staging — OYD agreed to provide load-in labor to offset stagehand cost</li><li>No reusable advance template — DMTB's was used as starting point for NoN with manual adjustments</li></ul><div class='tag-row'><span class='tag tag-gold'>TYPE 1 WASTE</span><span class='tag tag-gold'>TEMPLATIZE</span></div>` },
+  m11: { title: 'Step 11 — Staffing & Venue Coordination', subtitle: 'Physical Transformation Stream · Kylene Dependency', body: `<h4>What happens here</h4><ul><li>Security contracted and briefed</li><li>Venue staff (concessions, box office, operations) assigned</li><li>Changeover/setup scheduled with union crew</li><li>F&amp;B ordering and inventory confirmed with Pat</li></ul><h4>Waste observed</h4><ul><li>All of the above requires Kylene to coordinate — OYD has no direct authority</li><li>Security invoices often arrive post-show — settlement estimates used</li><li>Staffing costs tracked in a master spreadsheet (Mike maintains) — not integrated into Prism</li><li>Alex proposed getting 7-day-prior expense confirmation — good SOP idea not yet implemented</li></ul><div class='tag-row'><span class='tag tag-red'>KYLENE DEPENDENCY</span><span class='tag tag-red'>WAITING</span></div>` },
+  m12: { title: 'Step 12 — Day-of Show Execution', subtitle: 'Physical Transformation Stream · Value Creation', body: `<h4>What happens here</h4><ul><li>Load-in: staging, lighting, sound setup</li><li>Artist arrival, soundcheck</li><li>Doors open, audience entry and hospitality</li><li>Show run (performance, intermission, merchandise)</li><li>Load-out and teardown</li></ul><h4>Observations</h4><ul><li>This is where all value is created — the live experience itself</li><li>Chase Rice show went well by all accounts — successful first test for OYD</li><li>Fast Pass concept developed (separate VIP entry line) — good product innovation</li><li>VIP section / Marc's designated section being designed thoughtfully</li></ul><div class='tag-row'><span class='tag tag-green'>VALUE CREATING</span><span class='tag tag-green'>EXECUTION IMPROVING</span></div>` },
+  m13: { title: 'Step 13 — Settlement & F&B Reconciliation', subtitle: 'Physical Transformation Stream · Critical Bottleneck', body: `<h4>What happens here</h4><ul><li>Final ticket counts pulled from TM</li><li>F&amp;B revenue numbers collected from Pat</li><li>Security, staffing, production invoices gathered</li><li>Settlement sheet built in Prism</li><li>External settlement sent to artist/agent</li><li>Internal P&amp;L filed</li><li>Artist payment released via LECOM finance</li></ul><h4>Waste observed — this step has the most friction</h4><ul><li>Data lives in 5+ places: TM, Prism, Pat's POS, Kylene's payroll, security invoices</li><li>TM numbers can shift post-settlement — requires "Double Tap" verification</li><li>Southern Tier settlement had missed catering line ($1,500 × 2 days)</li><li>Gladius settlement: 4-ticket discrepancy between Kylene and TM numbers</li><li>Prism data entry error created $102K false projection on NCAA</li><li>Blue Eyed Soul: 5 checks of $100 paid at settlement — cash handling process</li><li>Artist payment timing uncertain — Forty Two didn't receive check on time</li></ul><div class='tag-row'><span class='tag tag-red'>BIGGEST BOTTLENECK</span><span class='tag tag-red'>DEFECT</span><span class='tag tag-red'>FRAGMENTATION</span></div>` },
+  m14: { title: 'Step 14 — Financial Close & Archive', subtitle: 'Post-Show · Lessons Learned', body: `<h4>What happens here</h4><ul><li>Final P&amp;L filed in Prism</li><li>Payroll submitted</li><li>Docs archived in Google Drive</li><li>Marketing attribution reported</li><li>Team debrief (ideally)</li></ul><h4>Observations</h4><ul><li>Prism P&amp;L reporting is working — Jason ran cross-show report Jan 24 showing trajectory</li><li>No formal post-show debrief occurring — lessons learned ad hoc via WhatsApp</li><li>SOPs folder exists in Drive but is nascent</li><li>Marketing attribution improving — UTMs now standard for new shows</li><li>No ticket buyer data fed back to marketing for retargeting</li></ul><div class='tag-row'><span class='tag tag-gold'>IMPROVING</span><span class='tag tag-gold'>ADD DEBRIEF</span></div>` }
+};
+
+function openModal(id) {
+  const m = modals[id];
+  if (!m) return;
+  document.getElementById('modal-title').textContent = m.title;
+  document.getElementById('modal-subtitle').textContent = m.subtitle;
+  document.getElementById('modal-body').innerHTML = m.body;
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+}
+
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+function switchTab(event, id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
 </script>
+
 </body>
 </html>
